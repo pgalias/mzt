@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import './global.css';
 
 export const metadata = {
@@ -12,7 +13,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <header className="container">
+          <nav className="border-b-2 border-amber-500">
+            <ul className="flex">
+              <li className="block group"><Link href="/" className="p-4 block group-hover:border-b-amber-200 group-hover:border-b-2 group-hover:-mb-2">homepage</Link></li>
+              <li className="block group"><Link href="/blog" className="p-4 block group-hover:border-b-amber-200 group-hover:border-b-2 group-hover:-mb-2">blog</Link></li>
+              <li className="block group"><Link href="/app" className="p-4 block group-hover:border-b-amber-200 group-hover:border-b-2 group-hover:-mb-2">app</Link></li>
+            </ul>
+          </nav>
+        </header>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

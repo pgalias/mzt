@@ -1,3 +1,4 @@
+const { APP_URL } = process.env;
 //@ts-check
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -12,6 +13,18 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  async rewrites() {
+    return [
+      {
+        source: "/app",
+        destination: `${APP_URL}/app`
+      },
+      {
+        source: "/app/:path*",
+        destination: `${APP_URL}/app/:path*`
+      }
+    ]
+  }
 };
 
 const plugins = [

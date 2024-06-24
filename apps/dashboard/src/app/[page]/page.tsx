@@ -27,6 +27,7 @@ const url = {
 }
 
 export default async function Page({ params }: { params: { page: "offers" | "contracts" } }) {
+  console.log(params, 'params');
   const items = await fetch(url[params.page])
     .then(res => res.json() as Promise<Products | Recipes>)
 
